@@ -124,7 +124,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">1</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -163,7 +163,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/">
+    <link itemprop="mainEntityOfPage" href="http://hsiehbocheng.github.io/2024/03/14/hello%20regexp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/uploads/hexo_photo.jpg">
@@ -181,7 +181,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/14/hello-RegExp/" class="post-title-link" itemprop="url">hello-RegExp</a>
+          <a href="/2024/03/14/hello%20regexp/" class="post-title-link" itemprop="url">\[NLP\]hello regexp</a>
         </h2>
 
         <div class="post-meta-container">
@@ -193,7 +193,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-14 16:36:08 / Modified: 16:42:23" itemprop="dateCreated datePublished" datetime="2024-03-14T16:36:08+08:00">2024-03-14</time>
+      <time title="Created: 2024-03-14 16:36:08 / Modified: 21:49:39" itemprop="dateCreated datePublished" datetime="2024-03-14T16:36:08+08:00">2024-03-14</time>
     </span>
 
   
@@ -206,214 +206,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="為什麼要使用-RegExp"><a href="#為什麼要使用-RegExp" class="headerlink" title="為什麼要使用 RegExp"></a>為什麼要使用 RegExp</h3><p>💡 想要找到車禍案件</p>
-<p>車禍 非車禍</p>
-<ol>
-<li>就本件<strong>車禍</strong>之發生自有過失，應就原告所受損害負賠償責任 </li>
-<li>足見被告對系爭<strong>車禍</strong>之發生，顯有過失 </li>
-<li>原告看到被告之機<strong>車</strong>停放於原告與陳明風同住之系爭住所外，原告早已耳聞兩人之間有曖昧關係</li>
-<li>在前開191號房屋<strong>車</strong>庫門邊又拿了一條拉鐵門用的鐵條</li>
-<li>隨即緊急煞車暫停於<strong>車</strong>道，致陳維德煞<strong>車</strong>不及，<strong>撞</strong>及上訴人<strong>車</strong>輛後端（下稱系爭事故）</li>
-<li>被告由後方追<strong>撞</strong>原告之<strong>車</strong>輛，原告因而受有左側足部壓砸傷</li>
-<li>甚至遭原告吐口水及左肩碰<strong>撞</strong>陸續之挑釁，…，該鐵條不但影響<strong>車</strong>輛進出 …</li>
-</ol>
-<p>❓ 我們發現 …</p>
-<ol>
-<li>不一定每篇車禍判決皆會提及車禍 → 只用車禍去篩選會漏掉許多資料，例如第5, 6筆資料</li>
-<li>非車禍案件也有很多提到車的可能 → 只用車去篩選也不宜，例如第3, 4 筆資料</li>
-<li>車禍案件更常會同時提及撞 … 車 …，且兩字會在附近</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">data = [...,</span><br><span class="line">				...,]</span><br><span class="line"></span><br><span class="line">result = []</span><br><span class="line"><span class="keyword">for</span> text <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;車禍&#x27;</span> <span class="keyword">in</span> text: <span class="comment"># 如果車禍出現在文中，可認為為車禍案件</span></span><br><span class="line">        result.append(text)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;車&#x27;</span> <span class="keyword">in</span> text: <span class="comment"># 如果車出現，判斷附近是否出現撞</span></span><br><span class="line">        car_index = text.index(<span class="string">&#x27;車&#x27;</span>)</span><br><span class="line">        sub_text = text[<span class="built_in">max</span>(car_index - <span class="number">10</span>, <span class="number">0</span>): <span class="built_in">min</span>(car_index + <span class="number">10</span>, <span class="built_in">len</span>(text))]</span><br><span class="line">        <span class="built_in">print</span>(sub_text)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;撞&#x27;</span> <span class="keyword">in</span> sub_text: <span class="comment"># 如果出現撞，則符合設定之規則</span></span><br><span class="line">            result.append(text)</span><br></pre></td></tr></table></figure>
-
-<p>上面的做法有以下兩個問題，也是為什麼我們希望使用正則要表達對字串的篩選邏輯</p>
-<ol>
-<li>可讀性低</li>
-<li>維護性低</li>
-</ol>
-<ul>
-<li>使用正則的話</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">result = []</span><br><span class="line"><span class="keyword">for</span> text <span class="keyword">in</span> data:</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">r&#x27;車禍|車.&#123;0,10&#125;撞|撞.&#123;0,10&#125;車&#x27;</span>):</span><br><span class="line">        result.append(text)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="什麼是正規表達式-Regular-Expression"><a href="#什麼是正規表達式-Regular-Expression" class="headerlink" title="什麼是正規表達式 Regular Expression"></a>什麼是正規表達式 Regular Expression</h3><blockquote>
-<p>利用 <strong>文字</strong> 與一系列 <strong>定義好的符號</strong> 所組合而成的 <strong>規則模式（pattern）</strong>，用來匹配我們的 <strong>目標字串。<br>車禍|車.{0,5}撞|撞.{0,5}車</strong></p>
-</blockquote>
-<p>搭配支援正則表達的工具、套件，對字串做 <strong>搜尋</strong>、<strong>替換</strong> 等處理。</p>
-<blockquote>
-</blockquote>
-<h3 id="該怎麼使用正則"><a href="#該怎麼使用正則" class="headerlink" title="該怎麼使用正則"></a>該怎麼使用正則</h3><img src="/2024/03/14/hello-RegExp/regexp_meme.png" class="">
-
-<ul>
-<li><p><strong>RegExp 常見特殊符號</strong></p>
-<table>
-<thead>
-<tr>
-<th>符號</th>
-<th>解釋</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>.</td>
-<td>比對換行符（\n）以外所有字元</td>
-</tr>
-<tr>
-<td>\w</td>
-<td>英文字母與數字</td>
-</tr>
-<tr>
-<td>\s</td>
-<td>空白、換行符 \n、回車符 \r tab \t</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<table>
-<thead>
-<tr>
-<th>符號</th>
-<th>解釋</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>?</td>
-<td>0 或一次</td>
-</tr>
-<tr>
-<td>+</td>
-<td>連續出現一次以上</td>
-</tr>
-<tr>
-<td>{x}</td>
-<td>x 次</td>
-</tr>
-<tr>
-<td>{x,y}</td>
-<td>x~y 次</td>
-</tr>
-</tbody></table>
-</li>
-<li><p><strong>小練習</strong></p>
-<p>  下列哪個正規表達式 <strong>無法</strong> 比對到 <code>google</code>？</p>
-<ol>
-<li><code>g\s+gle</code></li>
-<li><code>g\w&#123;1,&#125;gle</code></li>
-<li><code>go+gle</code></li>
-</ol>
-</li>
-<li><p><strong>Python re 套件介紹</strong></p>
-<blockquote>
-<p><strong>設定 pattern → 判斷字串中是否有這個 pattern → 我的 pattern 對應到的字是什麼</strong></p>
-</blockquote>
-<p>  在 python 中，我們可以透過 <code>re</code> 這個套件執行正則表達式的操作</p>
-<ol>
-<li><p>設定 pattern → <code>re.compile()</code></p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">text = <span class="string">&#x27;小明從光復路由北往南方向直行，遭被告駕駛上開車輛左側碰撞而倒車，小明很生氣&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 利用 re.compile 設定正規表達式</span></span><br><span class="line">pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;車禍|撞.&#123;0,10&#125;車|車.&#123;0,10&#125;撞&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>字串是否符合我們要的 pattern → <code>re.search()</code></p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;re.search(pattern=pattern, </span><br><span class="line">					string=text)</span><br><span class="line"><span class="comment"># 在 index=22~28 match 到 ‘車輛左側碰撞’ 符合我們的規則</span></span><br><span class="line">&lt;re.Match <span class="built_in">object</span>; span=(<span class="number">22</span>, <span class="number">28</span>), <span class="keyword">match</span>=<span class="string">&#x27;車輛左側碰撞&#x27;</span>&gt; </span><br></pre></td></tr></table></figure>
-</li>
-<li><p>提取匹配到的字串 → <code>re.search().group()</code></p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;re.search(pattern, text).group()</span><br><span class="line"><span class="string">&#x27;車輛左側碰撞&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>結合 pd.Series 找出符合規則的資料 → <code>pd.Series.str.contains()</code></p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;pattern = re.<span class="built_in">compile</span>(<span class="string">r&#x27;車禍|撞.&#123;0,10&#125;車|車.&#123;0,10&#125;撞&#x27;</span>)</span><br><span class="line">&gt;&gt;&gt;data = pd.DataFrame(&#123;<span class="string">&#x27;text&#x27;</span>: </span><br><span class="line">     [<span class="string">&#x27;小明從光復路由北往南方向直行，遭被告駕駛上開車輛左側碰撞而倒車，小明很生氣&#x27;</span>,</span><br><span class="line">	    <span class="string">&#x27;abcdefghijklmnopgrstuvwxyz&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;甲乙丙丁戊&#x27;</span>]&#125;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;data.text.<span class="built_in">str</span>.contains(pat=pattern)</span><br><span class="line"><span class="number">0</span>     <span class="literal">True</span></span><br><span class="line"><span class="number">1</span>     <span class="literal">False</span></span><br><span class="line"><span class="number">2</span>     <span class="literal">False</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>想用 SQL 撈？→<code>RLIKE</code>  （適用HAP)</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> context</span><br><span class="line"><span class="keyword">FROM</span> the_table</span><br><span class="line"><span class="keyword">WHERE</span> context RLIKE <span class="string">&#x27;車禍|撞.&#123;0,10&#125;車|車.&#123;0,10&#125;撞&#x27;</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="工具分享"><a href="#工具分享" class="headerlink" title="工具分享"></a>工具分享</h3><p><a target="_blank" rel="noopener" href="https://regex101.com/">regex101: build, test, and debug regex</a></p>
-
-
-<hr>
-<h3 id="學習資源"><a href="#學習資源" class="headerlink" title="學習資源"></a>學習資源</h3><p><a target="_blank" rel="noopener" href="https://youtu.be/hy3sd9MOAcc?si=pq3WcCyCtBCAywth">CS50</a><br><a target="_blank" rel="noopener" href="https://www.datacamp.com/tutorial/python-regular-expression-tutorial">DataCamp</a><br><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_regex.asp">W3School</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://hsiehbocheng.github.io/2024/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/hexo_photo.jpg">
-      <meta itemprop="name" content="BENSON">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程人頻道">
-      <meta itemprop="description" content="data x meme x life">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 程人頻道">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-03-07 16:54:00" itemprop="dateCreated datePublished" datetime="2024-03-07T16:54:00+08:00">2024-03-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>&nbsp;</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/03/14/hello%20regexp/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
