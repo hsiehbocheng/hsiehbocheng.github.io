@@ -19,25 +19,33 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hsiehbocheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="data x meme x life">
-<meta property="og:type" content="website">
-<meta property="og:title" content="程人頻道">
-<meta property="og:url" content="http://hsiehbocheng.github.io/index.html">
+    <meta name="description" content="為什麼要使用 RegExp💡 想要找到車禍案件 車禍 非車禍  就本件車禍之發生自有過失，應就原告所受損害負賠償責任  足見被告對系爭車禍之發生，顯有過失  原告看到被告之機車停放於原告與陳明風同住之系爭住所外，原告早已耳聞兩人之間有曖昧關係 在前開191號房屋車庫門邊又拿了一條拉鐵門用的鐵條 隨即緊急煞車暫停於車道，致陳維德煞車不及，撞及上訴人車輛後端（下稱系爭事故） 被告由後方追撞原告之車輛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hello-RegExp">
+<meta property="og:url" content="http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/index.html">
 <meta property="og:site_name" content="程人頻道">
-<meta property="og:description" content="data x meme x life">
+<meta property="og:description" content="為什麼要使用 RegExp💡 想要找到車禍案件 車禍 非車禍  就本件車禍之發生自有過失，應就原告所受損害負賠償責任  足見被告對系爭車禍之發生，顯有過失  原告看到被告之機車停放於原告與陳明風同住之系爭住所外，原告早已耳聞兩人之間有曖昧關係 在前開191號房屋車庫門邊又拿了一條拉鐵門用的鐵條 隨即緊急煞車暫停於車道，致陳維德煞車不及，撞及上訴人車輛後端（下稱系爭事故） 被告由後方追撞原告之車輛">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/regexp_meme.png">
+<meta property="article:published_time" content="2024-03-14T08:36:08.000Z">
+<meta property="article:modified_time" content="2024-03-14T08:42:23.914Z">
 <meta property="article:author" content="BENSON">
+<meta property="article:tag" content="nlp">
+<meta property="article:tag" content="regexp">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="sql">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/regexp_meme.png">
 
 
-<link rel="canonical" href="http://hsiehbocheng.github.io/">
+<link rel="canonical" href="http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-tw","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-tw","comments":true,"permalink":"http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/","path":"2024/03/14/hello-RegExp/","title":"hello-RegExp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>程人頻道</title>
+<title>hello-RegExp | 程人頻道</title>
   
 
 
@@ -70,7 +78,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">程人頻道</h1>
+      <p class="site-title">程人頻道</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">import pandas as np</p>
@@ -97,7 +105,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -110,6 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8-RegExp"><span class="nav-number">1.</span> <span class="nav-text">為什麼要使用 RegExp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF%E6%AD%A3%E8%A6%8F%E8%A1%A8%E9%81%94%E5%BC%8F-Regular-Expression"><span class="nav-number">2.</span> <span class="nav-text">什麼是正規表達式 Regular Expression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A9%B2%E6%80%8E%E9%BA%BC%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%89%87"><span class="nav-number">3.</span> <span class="nav-text">該怎麼使用正則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB"><span class="nav-number">4.</span> <span class="nav-text">工具分享</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%B8%E7%BF%92%E8%B3%87%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">學習資源</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -153,16 +162,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="http://hsiehbocheng.github.io/2024/03/14/hello-RegExp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -176,13 +186,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 程人頻道">
+      <meta itemprop="name" content="hello-RegExp | 程人頻道">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/14/hello-RegExp/" class="post-title-link" itemprop="url">hello-RegExp</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          hello-RegExp
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -205,8 +215,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="為什麼要使用-RegExp"><a href="#為什麼要使用-RegExp" class="headerlink" title="為什麼要使用 RegExp"></a>為什麼要使用 RegExp</h3><p>💡 想要找到車禍案件</p>
+    <div class="post-body" itemprop="articleBody"><h3 id="為什麼要使用-RegExp"><a href="#為什麼要使用-RegExp" class="headerlink" title="為什麼要使用 RegExp"></a>為什麼要使用 RegExp</h3><p>💡 想要找到車禍案件</p>
 <p>車禍 非車禍</p>
 <ol>
 <li>就本件<strong>車禍</strong>之發生自有過失，應就原告所受損害負賠償責任 </li>
@@ -333,7 +342,6 @@
 <hr>
 <h3 id="學習資源"><a href="#學習資源" class="headerlink" title="學習資源"></a>學習資源</h3><p><a target="_blank" rel="noopener" href="https://youtu.be/hy3sd9MOAcc?si=pq3WcCyCtBCAywth">CS50</a><br><a target="_blank" rel="noopener" href="https://www.datacamp.com/tutorial/python-regular-expression-tutorial">DataCamp</a><br><a target="_blank" rel="noopener" href="https://www.w3schools.com/python/python_regex.asp">W3School</a></p>
 
-      
     </div>
 
     
@@ -341,92 +349,28 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/nlp/" rel="tag"># nlp</a>
+              <a href="/tags/regexp/" rel="tag"># regexp</a>
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/sql/" rel="tag"># sql</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/07/hello-world/" rel="prev" title="Hello World">
+                  <i class="fa fa-angle-left"></i> Hello World
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://hsiehbocheng.github.io/2024/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/hexo_photo.jpg">
-      <meta itemprop="name" content="BENSON">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="程人頻道">
-      <meta itemprop="description" content="data x meme x life">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 程人頻道">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/03/07/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-03-07 16:54:00" itemprop="dateCreated datePublished" datetime="2024-03-07T16:54:00+08:00">2024-03-07</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
