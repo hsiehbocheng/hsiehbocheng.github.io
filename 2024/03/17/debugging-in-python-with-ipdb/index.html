@@ -28,9 +28,8 @@
 <meta property="og:description" content="抓蟲（debug）是每位工程師、資料科學家都不可避免的，而該如何有效率的除錯則是一個很關鍵的技能。 初學者在 debugging 時可能會使用 print 、logging 打印出段落中的訊息以判斷程式是否如預期運作，或是加入 Exception Handling 、assertions 做異常處理，更有經驗的工程師可能能更善用如 PyCharm、VSCode 這些 IDE 所提供的除錯功能或是撰">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/ipdb.mov">
-<meta property="og:image" content="http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/ipdb1.png">
 <meta property="article:published_time" content="2024-03-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-17T07:37:01.872Z">
+<meta property="article:modified_time" content="2024-03-17T07:38:01.577Z">
 <meta property="article:author" content="BENSON">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="debug">
@@ -207,7 +206,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-03-17 00:00:00 / Modified: 15:37:01" itemprop="dateCreated datePublished" datetime="2024-03-17T00:00:00+08:00">2024-03-17</time>
+      <time title="Created: 2024-03-17 00:00:00 / Modified: 15:38:01" itemprop="dateCreated datePublished" datetime="2024-03-17T00:00:00+08:00">2024-03-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -257,10 +256,7 @@
 </video>
 <!-- <img src="/2024/03/17/debugging-in-python-with-ipdb/ipdb.mov" class=""> -->
 
-<p>當程式碼跑到該行時，就會看到跳出 ipdb 的互動式 shell，可以在裡面下 cheatsheet 提到的參數，或是寫 Python 程式，</p>
-<img src="/2024/03/17/debugging-in-python-with-ipdb/ipdb1.png" class="">
-
-<p>例如可以查看 inputs.shape 或是直接打印出資料內容。而輸入 c 會跳到下一個 epoch，n 會執行下一行，q 則會直接退處整個程式。</p>
+<p>當程式碼跑到該行時，就會看到跳出 ipdb 的互動式 shell，可以在裡面下 cheatsheet 提到的參數，或是寫 Python 程式，<br>例如可以查看 inputs.shape 或是直接打印出資料內容。而輸入 c 會跳到下一個 epoch，n 會執行下一行，q 則會直接退處整個程式。</p>
 <h3 id="ipdb-缺點"><a href="#ipdb-缺點" class="headerlink" title="ipdb 缺點"></a>ipdb 缺點</h3><ol>
 <li>Limited  Debugging：ipdb 雖然具有互動式調校非常方便，但對於更複雜的問題（例如：multithreaded application），ipdb 的調校能力將會受到限制。</li>
 <li>Slow：因為是逐步執行，可能會較耗時，因此可能不適合大型的應用產品、程式</li>
