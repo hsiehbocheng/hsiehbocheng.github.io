@@ -20,17 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"hsiehbocheng.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.19.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="抓蟲（debug）是每位工程師、資料科學家都不可避免的，而該如何有效率的除錯則是一個很關鍵的技能。 初學者在 debugging 時可能會使用 print 、logging 打印出段落中的訊息以判斷程式是否如預期運作，或是加入 Exception Handling 、assertions 做異常處理，更有經驗的工程師可能能更善用如 PyCharm、VSCode 這些 IDE 所提供的除錯功能或是">
+    <meta name="description" content="在程式世界裡，抓蟲（debug）是個不可避免的坑，能不能高效的除錯技巧更是每位工程師和資料科學家痛 🥲。最近因為工作的關係，接手程式需要進行優化，在嘗試理解的過程中碰到一個除錯強大工具 ipdb，跟大家分享！ipdb 是一個第三方互動式除錯工具。ipdb 建立了一個互動式 shell 讓我們可以輕鬆地進行程式測試與除錯，非常方便。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="debugging in python with ipdb">
+<meta property="og:title" content="Quickly Debug Python Code with ipdb！">
 <meta property="og:url" content="http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/index.html">
 <meta property="og:site_name" content="Benson&#39;s data.science.ipynb">
-<meta property="og:description" content="抓蟲（debug）是每位工程師、資料科學家都不可避免的，而該如何有效率的除錯則是一個很關鍵的技能。 初學者在 debugging 時可能會使用 print 、logging 打印出段落中的訊息以判斷程式是否如預期運作，或是加入 Exception Handling 、assertions 做異常處理，更有經驗的工程師可能能更善用如 PyCharm、VSCode 這些 IDE 所提供的除錯功能或是">
+<meta property="og:description" content="在程式世界裡，抓蟲（debug）是個不可避免的坑，能不能高效的除錯技巧更是每位工程師和資料科學家痛 🥲。最近因為工作的關係，接手程式需要進行優化，在嘗試理解的過程中碰到一個除錯強大工具 ipdb，跟大家分享！ipdb 是一個第三方互動式除錯工具。ipdb 建立了一個互動式 shell 讓我們可以輕鬆地進行程式測試與除錯，非常方便。">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/ipdb_cover_.png">
+<meta property="og:image" content="http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/ipdb_meme.png">
 <meta property="og:image" content="http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/ipdb.mov">
 <meta property="article:published_time" content="2024-03-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2024-03-27T13:54:10.907Z">
+<meta property="article:modified_time" content="2024-03-27T14:21:21.077Z">
 <meta property="article:author" content="BENSON">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="debug">
@@ -42,10 +43,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-tw","comments":true,"permalink":"http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/","path":"2024/03/17/debugging-in-python-with-ipdb/","title":"debugging in python with ipdb"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-tw","comments":true,"permalink":"http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/","path":"2024/03/17/debugging-in-python-with-ipdb/","title":"Quickly Debug Python Code with ipdb！"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>debugging in python with ipdb | Benson's data.science.ipynb</title>
+<title>Quickly Debug Python Code with ipdb！ | Benson's data.science.ipynb</title>
   
 
 
@@ -118,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#What%E2%80%99s-ipdb"><span class="nav-number">1.</span> <span class="nav-text">What’s ipdb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipdb-cheatsheet"><span class="nav-number">2.</span> <span class="nav-text">ipdb cheatsheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipdb-%E5%AF%A6%E9%9A%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">ipdb 實際操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipdb-%E7%BC%BA%E9%BB%9E"><span class="nav-number">4.</span> <span class="nav-text">ipdb 缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-Debug"><span class="nav-number">1.</span> <span class="nav-text">How to Debug</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What%E2%80%99s-ipdb"><span class="nav-number">2.</span> <span class="nav-text">What’s ipdb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipdb-cheatsheet"><span class="nav-number">3.</span> <span class="nav-text">ipdb cheatsheet</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipdb-%E5%AF%A6%E6%88%B0%E6%BC%94%E7%B7%B4"><span class="nav-number">4.</span> <span class="nav-text">ipdb 實戰演練</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ipdb-%E7%BC%BA%E9%BB%9E"><span class="nav-number">5.</span> <span class="nav-text">ipdb 缺點</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">參考資料</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -190,12 +191,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="debugging in python with ipdb | Benson's data.science.ipynb">
+      <meta itemprop="name" content="Quickly Debug Python Code with ipdb！ | Benson's data.science.ipynb">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          debugging in python with ipdb
+          Quickly Debug Python Code with ipdb！
         </h1>
 
         <div class="post-meta-container">
@@ -213,7 +214,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-03-27 21:54:10" itemprop="dateModified" datetime="2024-03-27T21:54:10+08:00">2024-03-27</time>
+      <time title="Modified: 2024-03-27 22:21:21" itemprop="dateModified" datetime="2024-03-27T22:21:21+08:00">2024-03-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,10 +238,12 @@
     
     
     <div class="post-body" itemprop="articleBody"><img src="/2024/03/17/debugging-in-python-with-ipdb/ipdb_cover_.png" class="">
-<p>抓蟲（debug）是每位工程師、資料科學家都不可避免的，而該如何有效率的除錯則是一個很關鍵的技能。</p>
-<p>初學者在 debugging 時可能會使用 <code>print</code> 、<code>logging</code> 打印出段落中的訊息以判斷程式是否如預期運作，或是加入 <code>Exception Handling</code> 、<code>assertions</code> 做異常處理，更有經驗的工程師可能能更善用如 PyCharm、VSCode 這些 IDE 所提供的除錯功能或是撰寫 Unit Testing。</p>
-<p>今天要介紹的是一個第三方互動式除錯工具 ipdb。ipdb 建立了一個互動式 shell 讓我們可以輕鬆地進行程式測試與除錯，是非常方便強大的工具。</p>
+<p>在程式世界裡，抓蟲（debug）是個不可避免的坑，能不能高效的除錯技巧更是每位工程師和資料科學家痛 🥲。最近因為工作的關係，接手程式需要進行優化，在嘗試理解的過程中碰到一個除錯強大工具 ipdb，跟大家分享！<br>ipdb 是一個第三方互動式除錯工具。ipdb 建立了一個互動式 shell 讓我們可以輕鬆地進行程式測試與除錯，非常方便。</p>
 <span id="more"></span>
+<h3 id="How-to-Debug"><a href="#How-to-Debug" class="headerlink" title="How to Debug"></a>How to Debug</h3><p>相信大家都有遇過：「程式有 error 但不知道為什麼出錯 … 程式跑起來了！… WHY！！！」的囧境 Orz</p>
+<img src="/2024/03/17/debugging-in-python-with-ipdb/ipdb_meme.png" class="">
+
+<p>初學者在 debug 時可能會使用 <code>print</code> 、<code>logging</code> 打印出段落中的訊息以判斷程式是否如預期運作，或是加入 <code>Exception Handling</code> 、<code>assertions</code> 做異常處理，更有經驗的工程師可能能更善用如 PyCharm、VSCode 這些 IDE 所提供的除錯功能或是撰寫單元測試。而我們也可以透過 ipdb 這個工具來幫助我們了解目前環境變數的變化。那，ipdb 究竟是什麼？</p>
 <h3 id="What’s-ipdb"><a href="#What’s-ipdb" class="headerlink" title="What’s ipdb"></a>What’s ipdb</h3><p><a target="_blank" rel="noopener" href="https://pypi.org/project/ipdb/">ipdb</a> 全名 IPython-enables python debugger，其透過 IPython 擴展了 pdb 原有的基本功能，讓我們可以藉由 ipdb 建立的互動式 shell 執行 python 程式，不論是想看函數參數傳入內容是否正確、dataframe 或是 tensor 的 shape，甚至想寫額外測試的程式都可以輕鬆做到。</p>
 <p>使用 ipdb 就跟使用 pdb 時一樣簡單，將套件載入後，於想設置斷點的地方添加以下程式片段：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">!pip install ipdb</span><br><span class="line"><span class="keyword">import</span> ipdb</span><br><span class="line">ipdb.set_trace()</span><br></pre></td></tr></table></figure>
@@ -257,7 +260,7 @@
 <li>p：print 出變數的值</li>
 </ul>
 <p>當進入 ipdb 的互動式環境後，可以調用以上指令進行操作，例如執行下一行或是退出整個程式。</p>
-<h3 id="ipdb-實際操作"><a href="#ipdb-實際操作" class="headerlink" title="ipdb 實際操作"></a>ipdb 實際操作</h3><p>這裡示範使用<code>ipdb.set_trace()</code> 該如何進行除錯，通常會是在命令列作使用，而我們也可以在 jupyter notebook 做簡單測試，<br>我們使用 PyTorch 與 iris 資料集，建立一個很簡單的神經網路做預測模型。</p>
+<h3 id="ipdb-實戰演練"><a href="#ipdb-實戰演練" class="headerlink" title="ipdb 實戰演練"></a>ipdb 實戰演練</h3><p>這裡示範使用<code>ipdb.set_trace()</code> 該如何進行除錯，通常會是在命令列作使用，而我們也可以在 jupyter notebook 做簡單測試，<br>我們使用 PyTorch 與 iris 資料集，建立一個很簡單的神經網路做預測模型。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ipdb</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder</span><br><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">import</span> torch.nn <span class="keyword">as</span> nn</span><br><span class="line"><span class="keyword">import</span> torch.optim <span class="keyword">as</span> optim</span><br><span class="line"><span class="keyword">from</span> torch.utils.data <span class="keyword">import</span> TensorDataset, DataLoader</span><br><span class="line">le = LabelEncoder()</span><br><span class="line"></span><br><span class="line">iris = sm.datasets.get_rdataset(<span class="string">&#x27;iris&#x27;</span>).data</span><br><span class="line">iris.iloc[:, -<span class="number">1</span>] = le.fit_transform(iris.iloc[:, -<span class="number">1</span>])</span><br><span class="line">iris = np.array(iris)</span><br><span class="line">dataset = TensorDataset(torch.tensor(iris[:, :-<span class="number">1</span>], dtype=torch.<span class="built_in">float</span>), torch.tensor(iris[:, -<span class="number">1</span>], dtype=torch.long))</span><br><span class="line">dataloader = DataLoader(dataset, batch_size=<span class="number">2</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">myNN</span>(nn.Module):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="built_in">super</span>(myNN, self).__init__()</span><br><span class="line">    self.fc1 = nn.Linear(<span class="number">4</span>, <span class="number">10</span>)</span><br><span class="line">    self.fc2 = nn.Linear(<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">    self.fc3 = nn.Linear(<span class="number">10</span>, <span class="number">3</span>)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, x</span>):</span><br><span class="line">    x = torch.relu(self.fc1(x))</span><br><span class="line">    x = torch.relu(self.fc2(x))</span><br><span class="line">    x = self.fc3(x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">model = myNN()</span><br><span class="line">loss_func = nn.CrossEntropyLoss()</span><br><span class="line">optimizer = optim.SGD(model.parameters(), lr=<span class="number">0.01</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">  <span class="keyword">for</span> i, data <span class="keyword">in</span> <span class="built_in">enumerate</span>(dataloader):</span><br><span class="line">    inputs, labels = data</span><br><span class="line">    ipdb.set_trace()</span><br><span class="line">    outputs = model(inputs)</span><br><span class="line">    loss = loss_func(outputs.squeeze(), labels)</span><br><span class="line">    optimizer.zero_grad()</span><br><span class="line">    loss.backward()</span><br><span class="line">    optimizer.step()</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;epoch: <span class="subst">&#123;i&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>在訓練迴圈中，每個 batch 會作為 inputs 餵給模型輸出預測結果 ouputs，我們可以在 <code>outputs = model(inputs)</code> 前利用 <code>ipdb.set_trace()</code> 設置斷點，<br>目的是為了查看 inputs 資料長什麼樣子，因為在 CV、NLP 模型中，資料時常會先做許多 transform 函數才進入模型，此時就可能會想要確認模型輸入的資料細節。</p>
@@ -290,8 +293,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/03/14/hello%20regexp/" rel="prev" title="hello regexp">
-                  <i class="fa fa-angle-left"></i> hello regexp
+                <a href="/2024/03/14/hello%20regexp/" rel="prev" title="Getting Started with Regexp, Simple and Clear 🤗">
+                  <i class="fa fa-angle-left"></i> Getting Started with Regexp, Simple and Clear 🤗
                 </a>
             </div>
             <div class="post-nav-item">
