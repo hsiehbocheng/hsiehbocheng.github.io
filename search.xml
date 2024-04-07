@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Pyspark Install Guide 🐍</title>
+      <link href="/2024/04/07/pyspark-install-on-mac/"/>
+      <url>/2024/04/07/pyspark-install-on-mac/</url>
+      
+        <content type="html"><![CDATA[<p>作業系統：MacOS</p><h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><p>在安裝階段，我們需要安裝 Java、Scala 與 Apache Spark，並且安裝 pyspark 套件。<br>而在安裝這些軟體前，我們需要 Xcode 與 Homebrew 這兩項工具。</p><ol><li>Apple’s Command Line Tools Xcode<br>在終端機輸入<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>接者在彈跳視窗點按 install 即可。</li><li>安裝 Homebrew<br><a href="https://brew.sh/">homebrew</a> 是一個開源的套件管理器，其使用非常簡單所以可以節省很多的精力。<br>我們後續也會使用 homebrew 安裝 Java、Scala 與 spark。<br>到 homebrew 的頁面造著指示安裝即可。<a href="https://brew.sh/">Homebrew 頁面</a><br>如果不確定自己是否有安裝 homebrew 或是安裝完成想檢查是否成功的話，可以輸入 <code>brew</code> 或是 <code>which brew</code>，如果有成功出現 Example usage 或是 brew 的路徑代表成功～<img src="/2024/04/07/pyspark-install-on-mac/homebrew.png" class=""></li><li>安裝 java<br>可以先下 <code>java -version</code> 檢查電腦是否有 java 了<br>如果沒有的話輸入：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew cask install java</span><br></pre></td></tr></table></figure></li><li>安裝 scala<br>一樣可以先利用 <code>scala -version</code> 檢查是否有 scala，<br>如果沒有：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install scala</span><br></pre></td></tr></table></figure></li><li>安裝 spark<br>直接輸入：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install apache-spark</span><br></pre></td></tr></table></figure></li><li>安裝 pyspark<br>pyspark 是一個作為 python 與 spark 接口的套件，也就是直接利用 <code>pip</code> 即可，其中記得切換到你正在使用的虛擬環境。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pyspark</span><br></pre></td></tr></table></figure></li></ol><h2 id="檢查"><a href="#檢查" class="headerlink" title="檢查"></a>檢查</h2><p>做完上述步驟，即完成 pyspark 的安裝，我們可以來檢查一下是否安裝成功。</p><ol><li><p>spark<br>在終端機輸入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spark-shell</span><br></pre></td></tr></table></figure><p>成功的話會如下圖所示，並進入 scala 環境，接著輸入 <code>:q</code> 退出環境。</p><img src="/2024/04/07/pyspark-install-on-mac/spark_check.png" class=""></li><li><p>pyspark<br>接著測試我們真正使用的 pyspark，將環境指到你下載 pyspark 的環境。<br>直接嘗試載入套件即可</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyspark</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> python </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> spark </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Quickly Debug Python Code with ipdb！</title>
       <link href="/2024/03/17/debugging-in-python-with-ipdb/"/>
       <url>/2024/03/17/debugging-in-python-with-ipdb/</url>
