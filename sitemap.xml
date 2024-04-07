@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/</loc>
+    
+    <lastmod>2024-04-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://hsiehbocheng.github.io/tags/index.html</loc>
     
     <lastmod>2024-04-07</lastmod>
@@ -46,15 +55,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://hsiehbocheng.github.io/2024/03/17/debugging-in-python-with-ipdb/</loc>
-    
-    <lastmod>2024-04-05</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://hsiehbocheng.github.io/</loc>
@@ -72,14 +72,14 @@
   </url>
   
   <url>
-    <loc>http://hsiehbocheng.github.io/tags/spark/</loc>
+    <loc>http://hsiehbocheng.github.io/tags/debug/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://hsiehbocheng.github.io/tags/debug/</loc>
+    <loc>http://hsiehbocheng.github.io/tags/spark/</loc>
     <lastmod>2024-04-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
