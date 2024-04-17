@@ -4,6 +4,29 @@
   
     
     <entry>
+      <title>bert_cls</title>
+      <link href="/2024/04/17/bert-cls/"/>
+      <url>/2024/04/17/bert-cls/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> nlp </tag>
+            
+            <tag> hugging face </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Dive into Multithreading in Python!</title>
       <link href="/2024/04/16/multithreading/"/>
       <url>/2024/04/16/multithreading/</url>
