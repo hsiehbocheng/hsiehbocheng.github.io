@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>bert_cls</title>
+      <title>Building Tweet Classification Models with BERT 🤗</title>
       <link href="/2024/04/17/bert-cls/"/>
       <url>/2024/04/17/bert-cls/</url>
       
@@ -17,6 +17,8 @@
             <tag> python </tag>
             
             <tag> nlp </tag>
+            
+            <tag> bert </tag>
             
             <tag> hugging face </tag>
             
