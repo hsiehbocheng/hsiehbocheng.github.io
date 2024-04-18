@@ -8,8 +8,14 @@
       <link href="/2024/04/17/bert-cls/"/>
       <url>/2024/04/17/bert-cls/</url>
       
-        <content type="html"><![CDATA[<p><a href="https://github.com/hsiehbocheng/natural-language-processing-with-disaster-tweets/tree/main">code</a></p>]]></content>
+        <content type="html"><![CDATA[<p>文本分類是最初接觸 NLP 領域時最先、最常遇到的任務，其中傳統的做法會使用詞頻、TF-IDF、Word2vec 等方法將文本項量化後再接 SVM, XGBoost 等分類器進行實作。隨著 Transformers 架構出現，大家開始嘗試使用 BERT 等模型來進行文本分類，並且得到不錯的結果，而隨著開源社群的茁壯貢獻，現在想要調用 Bert 進行推理、訓練都已經不是難事，今天以 Hugging Face 的 transformers 套件來進行實作。<br>所以今天的 Tutorial 為實作以 Bert 進行文本分類，其中用到的資料集為來自 Kaggle 公開競賽「<a href="https://www.kaggle.com/competitions/nlp-getting-started">Natural Language Processing with Disaster Tweets</a>」，競賽目的希望透過人們在 X 上的推文預測內容是否正在描述災難（disaster）的情況。</p><p>🤗 你將在本篇文了解：</p><ul><li>如何從 Hugging Face 載入各種大型語言模型</li><li>transformers、Tokenizer、Dataset 功能與使用方法</li><li>如何使用 Trainer API 微調模型</li></ul><h2 id="requirements"><a href="#requirements" class="headerlink" title="requirements"></a>requirements</h2><p>🐍 python 3.7+<br>🐍 torch 2.1.1<br>🤗 transformers 4.28.0<br>🤗 datasets 2.13.1</p><ul><li>資料集：<a href="https://www.kaggle.com/competitions/nlp-getting-started">kaggle Link</a></li><li>程式碼：<a href="https://github.com/hsiehbocheng/natural-language-processing-with-disaster-tweets?tab=readme-ov-file">Github Link</a></li></ul><h2 id="data-preprocessing"><a href="#data-preprocessing" class="headerlink" title="data preprocessing"></a>data preprocessing</h2><p>資料集包含推文 id, keyword, location 與 text 以及 target，text 為推文內容，是我們主要要使用的資料，而 target 則是要預測的分類標籤，分別為 0 (not disaster) 和 1 (disaster)。</p><img src="/2024/04/17/bert-cls/data.png" class=""><p>在任何任務中資料清洗都是很重要的一環，我想 DS 大約有 80% 的時間都花在資料清洗、資料工程這種下水道工程之中。了解資料，知道資料有什麼異常、分布需要話非常多的時間，礙於文章篇幅，這邊在 <a href="https://github.com/hsiehbocheng/natural-language-processing-with-disaster-tweets?tab=readme-ov-file">Github</a> 提供程式與清洗後的資料集，其中資料清洗主要參考了「<a href="https://www.kaggle.com/code/gunesevitan/nlp-with-disaster-tweets-eda-cleaning-and-bert">NLP with Disaster Tweets - EDA, Cleaning and BERT</a> 」，作者對資料做了很深入的研究與清洗，包含還原縮寫、亂碼等，也糾正了標記錯誤的資料。我將作者用來做 <code>re.sub</code> 的內容統整到 <code>clean_mapping.xlsx</code> 中，並將處理完的資料放在 repo 中，可直接下載，接下來將會使用這份清洗過的資料。</p><h2 id="BERT-訓練"><a href="#BERT-訓練" class="headerlink" title="BERT 訓練"></a>BERT 訓練</h2><p>雖然說是 Bert，但其實我所使用的是 DistilBERT，該模型是 Hugging Face 在 2019 所提出的論文，該架構與 Bert 相似，是利用蒸餾技術降低模型大小，在保有一定準確度下提升模型訓練速度，對於細節有興趣的可以參考<a href="https://arxiv.org/abs/1910.01108">這篇論文</a>。但在 transformers 中使用這兩個模型的差異只在於指定的模型確認站 checkpoint 不一樣而已。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://huggingface.co/learn/nlp-course/chapter1/1">🤗 Hugging Face NLP Course</a><br><a href="https://www.kaggle.com/code/gunesevitan/nlp-with-disaster-tweets-eda-cleaning-and-bert">NLP with Disaster Tweets - EDA, Cleaning and BERT</a></p>]]></content>
       
+      
+      <categories>
+          
+          <category> nlp </category>
+          
+      </categories>
       
       
         <tags>
