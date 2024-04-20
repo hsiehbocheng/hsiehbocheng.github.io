@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hsiehbocheng.github.io/2024/04/20/word-seg/</loc>
+    
+    <lastmod>2024-04-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://hsiehbocheng.github.io/2024/04/17/bert-cls/</loc>
     
     <lastmod>2024-04-20</lastmod>
