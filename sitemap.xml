@@ -136,6 +136,20 @@
   </url>
   
   <url>
+    <loc>http://hsiehbocheng.github.io/tags/regexp/</loc>
+    <lastmod>2024-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/sql/</loc>
+    <lastmod>2024-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://hsiehbocheng.github.io/tags/spark/</loc>
     <lastmod>2024-06-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -151,20 +165,6 @@
   
   <url>
     <loc>http://hsiehbocheng.github.io/tags/llm/</loc>
-    <lastmod>2024-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/regexp/</loc>
-    <lastmod>2024-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/sql/</loc>
     <lastmod>2024-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
