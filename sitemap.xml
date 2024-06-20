@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://hsiehbocheng.github.io/2024/06/20/yt-gen-caption/</loc>
+    
+    <lastmod>2024-06-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://hsiehbocheng.github.io/2024/04/17/bert-cls-tutorial/</loc>
     
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-07</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -94,7 +103,7 @@
 
   <url>
     <loc>http://hsiehbocheng.github.io/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -102,70 +111,84 @@
   
   <url>
     <loc>http://hsiehbocheng.github.io/tags/python/</loc>
-    <lastmod>2024-06-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/spark/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://hsiehbocheng.github.io/tags/nlp/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://hsiehbocheng.github.io/tags/bert/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://hsiehbocheng.github.io/tags/hugging-face/</loc>
-    <lastmod>2024-06-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/rag/</loc>
-    <lastmod>2024-06-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/llm/</loc>
-    <lastmod>2024-06-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/regexp/</loc>
-    <lastmod>2024-06-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://hsiehbocheng.github.io/tags/sql/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://hsiehbocheng.github.io/tags/debug/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/regexp/</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/sql/</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/spark/</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/rag/</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/llm/</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/asr/</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/tags/whisper/</loc>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -173,22 +196,29 @@
 
   
   <url>
-    <loc>http://hsiehbocheng.github.io/categories/python/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <loc>http://hsiehbocheng.github.io/categories/nlp/</loc>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://hsiehbocheng.github.io/categories/nlp/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <loc>http://hsiehbocheng.github.io/categories/python/</loc>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>http://hsiehbocheng.github.io/categories/rag/</loc>
-    <lastmod>2024-06-06</lastmod>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://hsiehbocheng.github.io/categories/asr/</loc>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

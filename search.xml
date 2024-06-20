@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>提升觀看率必學！使用 yt_dlp 和 faster_whisper 自動生成 Youtube 影片字幕</title>
+      <link href="/2024/06/20/yt-gen-caption/"/>
+      <url>/2024/06/20/yt-gen-caption/</url>
+      
+        <content type="html"><![CDATA[<p>這篇文章將一步一步指導你如何迅速開發一個AI自動影片生成工具！我們將使用 yt_dlp 和 faster_whisper 來實現這一功能。本文還會詳細介紹如何調整 faster_whisper 的參數設定，以提高語音辨識的準確性。透過這些技術，你將能夠有效地增強你的視頻內容，讓創作更加簡便快捷。</p><ul><li>流程架構<ol><li>下載 YouTube 影片並轉換成 mp3：<br> 使用 yt_dlp 工具下載影片並提取音頻。</li><li>轉換音頻為文本：<br> 使用 faster_whisper 將 mp3 檔案轉換為字幕文本。</li></ol></li></ul><ol><li>下載並轉換 YouTube 影片<br>首先，我們需要使用 yt_dlp 來下載 YouTube 影片並提取音頻。yt_dlp 是一個強大的下載工具，支持多種網站和格式。以下是使用方法：</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> asr </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> asr </tag>
+            
+            <tag> whisper </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>什麼是 RAG｜就像讓裸考的你 open book 考試</title>
       <link href="/2024/06/02/rag-intro/"/>
       <url>/2024/06/02/rag-intro/</url>
